@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!-- <link rel="canonical" href="https://www.tobitheghost.com/" /> -->
+    <link rel="manifest" href="{{ url_for('static', filename='manifest/manifest.json')}}" />
+    <!-- <link rel="shortcut icon" href="{{ url_for('static', filename='layout/images/icon/White Outline Logo Mark.ico')}}"> -->
+
+    <link rel="preload" href="{{url_for('static', filename='css/style.css')}}" as="style">
+    <link rel="stylesheet" href="{{url_for('static', filename='css/style.css')}}">
+    {% block head %}{% endblock %}
+    <title>{% block title %}Base{% endblock %}</title>
+</head>
+<body class="">
+    <script>0</script>
+    <header>
+        <nav id="navBar">
+            <a class="header-logo" href="{{url_for('home.homepage')}}">
+                <img id="darkModeLogo" class="logo hidden" src="{{url_for('static', filename='images/White Candice Tobi.png')}}">
+                <img id="lightModeLogo" class="logo" src="{{url_for('static', filename='images/Black Candice Tobi.png')}}">
+            </a>
+            <div class="links-theme">
+                <ul class="links">
+                    <li class="button-link"><a {% if page_name == "home" %} class="active" {% endif %} href="{{url_for('home.homepage')}}">Home</a></li>
+                    <li class="button-link"><a {% if page_name == "about" %} class="active" {% endif %} href="#">About</a></li>
+                    <li class="button-link"><a {% if page_name == "project" %} class="active" {% endif %} href="#">Projects</a></li>
+                    <li class="button-link"><a class="cta" href="#">Contact</a></li>
+                </ul>
+                <div class="theme">
+                    <svg id="darkModeToggle" class="icon"  width="800px" height="800px" viewBox="0 0 24 24" fill="none"><g stroke-width="0"/><g stroke-linecap="round" stroke-linejoin="round"/><g><path d="M12.0557 3.59974C12.2752 3.2813 12.2913 2.86484 12.0972 2.53033C11.9031 2.19582 11.5335 2.00324 11.1481 2.03579C6.02351 2.46868 2 6.76392 2 12C2 17.5228 6.47715 22 12 22C17.236 22 21.5313 17.9764 21.9642 12.8518C21.9967 12.4664 21.8041 12.0968 21.4696 11.9027C21.1351 11.7086 20.7187 11.7248 20.4002 11.9443C19.4341 12.6102 18.2641 13 17 13C13.6863 13 11 10.3137 11 6.99996C11 5.73589 11.3898 4.56587 12.0557 3.59974Z" fill="#000000"/> </g></svg>
+                    <svg id="lightModeToggle" class="icon hidden"  width="800px" height="800px" viewBox="0 0 24 24" fill="none"><g stroke-width="0"/><g stroke-linecap="round" stroke-linejoin="round"/><g><g clip-path="url(#a)" fill="#000000"> <path d="M12 0a1 1 0 0 1 1 1v4a1 1 0 1 1-2 0V1a1 1 0 0 1 1-1ZM4.929 3.515a1 1 0 0 0-1.414 1.414l2.828 2.828a1 1 0 0 0 1.414-1.414L4.93 3.515ZM1 11a1 1 0 1 0 0 2h4a1 1 0 1 0 0-2H1ZM18 12a1 1 0 0 1 1-1h4a1 1 0 1 1 0 2h-4a1 1 0 0 1-1-1ZM17.657 16.243a1 1 0 0 0-1.414 1.414l2.828 2.828a1 1 0 1 0 1.414-1.414l-2.828-2.828ZM7.757 17.657a1 1 0 1 0-1.414-1.414L3.515 19.07a1 1 0 1 0 1.414 1.414l2.828-2.828ZM20.485 4.929a1 1 0 0 0-1.414-1.414l-2.828 2.828a1 1 0 1 0 1.414 1.414l2.828-2.828ZM13 19a1 1 0 1 0-2 0v4a1 1 0 1 0 2 0v-4ZM12 7a5 5 0 1 0 0 10 5 5 0 0 0 0-10Z"/> </g> <defs> <clipPath id="a"> <path fill="#ffffff" d="M0 0h24v24H0z"/> </clipPath> </defs> </g></svg>
+                </div>
+            </div>
+        </nav>
+    </header>
+
+    <div id="scrollToTop" class="scroll-to-top">
+        <a class="button-link" href="#navBar"><button><svg class="icon" viewBox="0 0 24 24" fill="none"><g stroke-width="0"></g><g stroke-linecap="round" stroke-linejoin="round"></g><g> <path d="M5.08884 11.2945C5.26942 11.7216 5.69482 12 6.16669 12H9V19C9 19.5523 9.44772 20 10 20H14C14.5523 20 15 19.5523 15 19V12H17.8333C18.3052 12 18.7306 11.7216 18.9112 11.2945C19.0917 10.8674 18.9919 10.3759 18.6583 10.049L12.825 4.33474C12.3693 3.88842 11.6307 3.88842 11.175 4.33474L5.34174 10.049C5.00808 10.3759 4.90826 10.8674 5.08884 11.2945Z" fill="#000000"></path> </g></svg></button></a>
+    </div>
+    
+    <main>
+    {% block content %}
+    {% endblock %}
+    </main>
+
+    <footer>
+        <section class="footer-links-wrapper">
+            <article class="about-me-footer">
+                <h2 class="title">
+                    Site Description Title
+                </h2>
+                <p>
+                    Site Description Text
+                </p>
+            </article>
+            <article class="quick-links-footer footer-links">
+                <h2 class="title">
+                    Quick Links
+                </h2>
+                <ul>
+                    <li><a href="{{url_for('home.homepage')}}">Home</a></li>
+                    <li><a href="#">About</a></li>
+                    <li><a href="#">Projects</a></li>
+                    <li><a href="#">Contact</a></li>
+                    <li><a href="#">External Link<svg class="icon" width="800px" height="800px" viewBox="0 0 24 24" fill="none"><g stroke-width="0"/><g stroke-linecap="round" stroke-linejoin="round"/><g id="SVGRepo_iconCarrier"> <g id="Interface / External_Link"> <path id="Vector" d="M10.0002 5H8.2002C7.08009 5 6.51962 5 6.0918 5.21799C5.71547 5.40973 5.40973 5.71547 5.21799 6.0918C5 6.51962 5 7.08009 5 8.2002V15.8002C5 16.9203 5 17.4801 5.21799 17.9079C5.40973 18.2842 5.71547 18.5905 6.0918 18.7822C6.5192 19 7.07899 19 8.19691 19H15.8031C16.921 19 17.48 19 17.9074 18.7822C18.2837 18.5905 18.5905 18.2839 18.7822 17.9076C19 17.4802 19 16.921 19 15.8031V14M20 9V4M20 4H15M20 4L13 11" stroke="#000000" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/> </g> </g></svg></a></li>
+                </ul>
+            </article>
+            <article class="social-links-footer footer-links">
+                <h2 class="title">
+                    Socials
+                </h2>
+                <ul>
+                    <li>
+                        <a href="#">
+                            <svg class="icon" width="800px" height="800px" viewBox="0 0 20 20" version="1.1" fill="#000000"><g stroke-width="0"/><g stroke-linecap="round" stroke-linejoin="round"/><g> <title>github [#000000]</title> <desc></desc> <defs> </defs> <g stroke="none" stroke-width="1" fill="none" fill-rule="evenodd"> <g id="Dribbble-Light-Preview" transform="translate(-140.000000, -7559.000000)" fill="#000000"> <g id="icons" transform="translate(56.000000, 160.000000)"> <path d="M94,7399 C99.523,7399 104,7403.59 104,7409.253 C104,7413.782 101.138,7417.624 97.167,7418.981 C96.66,7419.082 96.48,7418.762 96.48,7418.489 C96.48,7418.151 96.492,7417.047 96.492,7415.675 C96.492,7414.719 96.172,7414.095 95.813,7413.777 C98.04,7413.523 100.38,7412.656 100.38,7408.718 C100.38,7407.598 99.992,7406.684 99.35,7405.966 C99.454,7405.707 99.797,7404.664 99.252,7403.252 C99.252,7403.252 98.414,7402.977 96.505,7404.303 C95.706,7404.076 94.85,7403.962 94,7403.958 C93.15,7403.962 92.295,7404.076 91.497,7404.303 C89.586,7402.977 88.746,7403.252 88.746,7403.252 C88.203,7404.664 88.546,7405.707 88.649,7405.966 C88.01,7406.684 87.619,7407.598 87.619,7408.718 C87.619,7412.646 89.954,7413.526 92.175,7413.785 C91.889,7414.041 91.63,7414.493 91.54,7415.156 C90.97,7415.418 89.522,7415.871 88.63,7414.304 C88.63,7414.304 88.101,7413.319 87.097,7413.247 C87.097,7413.247 86.122,7413.234 87.029,7413.87 C87.029,7413.87 87.684,7414.185 88.139,7415.37 C88.139,7415.37 88.726,7417.2 91.508,7416.58 C91.513,7417.437 91.522,7418.245 91.522,7418.489 C91.522,7418.76 91.338,7419.077 90.839,7418.982 C86.865,7417.627 84,7413.783 84,7409.253 C84,7403.59 88.478,7399 94,7399" id="github-[#000000]"> </path> </g> </g> </g> </g></svg>
+                            <span>Github</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#">
+                            <svg class="icon" width="800px" height="800px" viewBox="0 0 20 20" version="1.1" fill="#000000"><g stroke-width="0"/><g stroke-linecap="round" stroke-linejoin="round"/><g> <title>linkedin [#000000]</title> <desc></desc> <defs> </defs> <g stroke="none" stroke-width="1" fill="none" fill-rule="evenodd"> <g id="Dribbble-Light-Preview" transform="translate(-180.000000, -7479.000000)" fill="#000000"> <g id="icons" transform="translate(56.000000, 160.000000)"> <path d="M144,7339 L140,7339 L140,7332.001 C140,7330.081 139.153,7329.01 137.634,7329.01 C135.981,7329.01 135,7330.126 135,7332.001 L135,7339 L131,7339 L131,7326 L135,7326 L135,7327.462 C135,7327.462 136.255,7325.26 139.083,7325.26 C141.912,7325.26 144,7326.986 144,7330.558 L144,7339 L144,7339 Z M126.442,7323.921 C125.093,7323.921 124,7322.819 124,7321.46 C124,7320.102 125.093,7319 126.442,7319 C127.79,7319 128.883,7320.102 128.883,7321.46 C128.884,7322.819 127.79,7323.921 126.442,7323.921 L126.442,7323.921 Z M124,7339 L129,7339 L129,7326 L124,7326 L124,7339 Z" id="linkedin-[#000000]"> </path> </g> </g> </g> </g></svg>
+                            <span>LinkedIn</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#">
+                            <svg class="icon" width="800px" height="800px" viewBox="-10 -5 1034 1034" version="1.1" fill="#000000"><g stroke-width="0"/><g stroke-linecap="round" stroke-linejoin="round"/><g> <path fill="#000000" d="M499 112q-93 1 -166 11q-81 11 -128 33l-14 8q-16 10 -32 25q-22 21 -38 47q-21 33 -32 73q-14 47 -14 103v37q0 77 1 119q3 113 18 188q19 95 62 154q50 67 134 89q109 29 210 24q46 -3 88 -12q30 -7 55 -17l19 -8l-4 -75l-22 6q-28 6 -57 10q-41 6 -78 4q-53 -1 -80 -7 q-43 -8 -67 -30q-29 -25 -35 -72q-2 -14 -2 -29l25 6q31 6 65 10q48 7 93 9q42 2 92 -2q32 -2 88 -9t107 -30q49 -23 81.5 -54.5t38.5 -63.5q9 -45 13 -109q4 -46 5 -97v-41q0 -56 -14 -103q-11 -40 -32 -73q-16 -26 -38 -47q-15 -15 -32 -25q-12 -8 -14 -8 q-46 -22 -127 -33q-74 -10 -166 -11h-3zM367 267q73 0 109 56l24 39l24 -39q36 -56 109 -56q63 0 101 43t38 117v239h-95v-232q0 -74 -61 -74q-69 0 -69 88v127h-94v-127q0 -88 -69 -88q-61 0 -61 74v232h-95v-239q0 -74 38 -117t101 -43z"/> </g></svg>
+                            <span>Mastodon</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#">
+                            <svg class="icon" width="800px" height="800px" viewBox="0 -2 20 20" version="1.1" fill="#000000"><g stroke-width="0"/><g stroke-linecap="round" stroke-linejoin="round"/><g> <title>twitter [#000000]</title> <desc></desc> <defs> </defs> <g stroke="none" stroke-width="1" fill="none" fill-rule="evenodd"> <g id="Dribbble-Light-Preview" transform="translate(-60.000000, -7521.000000)" fill="#000000"> <g id="icons" transform="translate(56.000000, 160.000000)"> <path d="M10.29,7377 C17.837,7377 21.965,7370.84365 21.965,7365.50546 C21.965,7365.33021 21.965,7365.15595 21.953,7364.98267 C22.756,7364.41163 23.449,7363.70276 24,7362.8915 C23.252,7363.21837 22.457,7363.433 21.644,7363.52751 C22.5,7363.02244 23.141,7362.2289 23.448,7361.2926 C22.642,7361.76321 21.761,7362.095 20.842,7362.27321 C19.288,7360.64674 16.689,7360.56798 15.036,7362.09796 C13.971,7363.08447 13.518,7364.55538 13.849,7365.95835 C10.55,7365.79492 7.476,7364.261 5.392,7361.73762 C4.303,7363.58363 4.86,7365.94457 6.663,7367.12996 C6.01,7367.11125 5.371,7366.93797 4.8,7366.62489 L4.8,7366.67608 C4.801,7368.5989 6.178,7370.2549 8.092,7370.63591 C7.488,7370.79836 6.854,7370.82199 6.24,7370.70483 C6.777,7372.35099 8.318,7373.47829 10.073,7373.51078 C8.62,7374.63513 6.825,7375.24554 4.977,7375.24358 C4.651,7375.24259 4.325,7375.22388 4,7375.18549 C5.877,7376.37088 8.06,7377 10.29,7376.99705" id="twitter-[#000000]"> </path> </g> </g> </g> </g></svg>
+                            <span>Twitter/X</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#">
+                            <svg class="icon" width="800px" height="800px" viewBox="0 0 24 24" version="1.1"  fill="#000000"><g stroke-width="0"/><g stroke-linecap="round" stroke-linejoin="round"/><g> <path fill-rule="evenodd" clip-rule="evenodd" d="M12 18C15.3137 18 18 15.3137 18 12C18 8.68629 15.3137 6 12 6C8.68629 6 6 8.68629 6 12C6 15.3137 8.68629 18 12 18ZM12 16C14.2091 16 16 14.2091 16 12C16 9.79086 14.2091 8 12 8C9.79086 8 8 9.79086 8 12C8 14.2091 9.79086 16 12 16Z" fill="#0F0F0F"/> <path d="M18 5C17.4477 5 17 5.44772 17 6C17 6.55228 17.4477 7 18 7C18.5523 7 19 6.55228 19 6C19 5.44772 18.5523 5 18 5Z" fill="#0F0F0F"/> <path fill-rule="evenodd" clip-rule="evenodd" d="M1.65396 4.27606C1 5.55953 1 7.23969 1 10.6V13.4C1 16.7603 1 18.4405 1.65396 19.7239C2.2292 20.8529 3.14708 21.7708 4.27606 22.346C5.55953 23 7.23969 23 10.6 23H13.4C16.7603 23 18.4405 23 19.7239 22.346C20.8529 21.7708 21.7708 20.8529 22.346 19.7239C23 18.4405 23 16.7603 23 13.4V10.6C23 7.23969 23 5.55953 22.346 4.27606C21.7708 3.14708 20.8529 2.2292 19.7239 1.65396C18.4405 1 16.7603 1 13.4 1H10.6C7.23969 1 5.55953 1 4.27606 1.65396C3.14708 2.2292 2.2292 3.14708 1.65396 4.27606ZM13.4 3H10.6C8.88684 3 7.72225 3.00156 6.82208 3.0751C5.94524 3.14674 5.49684 3.27659 5.18404 3.43597C4.43139 3.81947 3.81947 4.43139 3.43597 5.18404C3.27659 5.49684 3.14674 5.94524 3.0751 6.82208C3.00156 7.72225 3 8.88684 3 10.6V13.4C3 15.1132 3.00156 16.2777 3.0751 17.1779C3.14674 18.0548 3.27659 18.5032 3.43597 18.816C3.81947 19.5686 4.43139 20.1805 5.18404 20.564C5.49684 20.7234 5.94524 20.8533 6.82208 20.9249C7.72225 20.9984 8.88684 21 10.6 21H13.4C15.1132 21 16.2777 20.9984 17.1779 20.9249C18.0548 20.8533 18.5032 20.7234 18.816 20.564C19.5686 20.1805 20.1805 19.5686 20.564 18.816C20.7234 18.5032 20.8533 18.0548 20.9249 17.1779C20.9984 16.2777 21 15.1132 21 13.4V10.6C21 8.88684 20.9984 7.72225 20.9249 6.82208C20.8533 5.94524 20.7234 5.49684 20.564 5.18404C20.1805 4.43139 19.5686 3.81947 18.816 3.43597C18.5032 3.27659 18.0548 3.14674 17.1779 3.0751C16.2777 3.00156 15.1132 3 13.4 3Z" fill="#0F0F0F"/> </g></svg>
+                            <span>Instagram</span>
+                        </a>
+                    </li>
+                </ul>
+            </article>
+        </section>
+
+        <section class="copyright">
+            <span>&#169; 2025 Tobiathan Ghost. All rights reserved.</span>
+            <span>Made by hand with Python and the Flask Framework</span>
+        </section>
+    </footer>
+
+    <script src="{{url_for('static', filename='javascript/index.js')}}" defer></script>
+</body>
+</html>

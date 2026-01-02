@@ -1,0 +1,12 @@
+main {
+    width: 1110px;
+    display: grid;
+    column-gap: 30px;
+    grid-template-columns: repeat(12, 65px);
+    margin: 0 auto;
+}
+
+section {
+    margin: 24px 0;
+}
+
